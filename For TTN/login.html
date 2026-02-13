@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Login</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffe6f0;
+      color: #d6336c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #display {
+      width: 200px;
+      height: 50px;
+      border: 2px solid #d6336c;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      background-color: #fff0f5;
+      letter-spacing: 5px;
+      line-height: 50px;
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 70px);
+      gap: 10px;
+    }
+
+    .key {
+      width: 70px;
+      height: 70px;
+      font-size: 24px;
+      border-radius: 12px;
+      border: 2px solid #d6336c;
+      background-color: #ffe6f0;
+      color: #d6336c;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .key:hover {
+      background-color: #ffccd9;
+    }
+
+    #enter {
+      grid-column: span 3;
+      background-color: white;
+      border: 2px solid #d6336c;
+      font-weight: bold;
+    }
+
+    #enter:hover {
+      background-color: #ffe6f0;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ff1a75;
+      min-height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enter Passcode 💕</h1>
+  <p>To see your Valentine surprise</p>
+  <div id="display"></div>
+
+  <div class="keypad">
+    <button class="key" onclick="pressKey('1')">1</button>
+    <button class="key" onclick="pressKey('2')">2</button>
+    <button class="key" onclick="pressKey('3')">3</button>
+    <button class="key" onclick="pressKey('4')">4</button>
+    <button class="key" onclick="pressKey('5')">5</button>
+    <button class="key" onclick="pressKey('6')">6</button>
+    <button class="key" onclick="pressKey('7')">7</button>
+    <button class="key" onclick="pressKey('8')">8</button>
+    <button class="key" onclick="pressKey('9')">9</button>
+    <button class="key" onclick="pressKey('0')">0</button>
+    <button class="key" onclick="clearDisplay()">C</button>
+    <button id="enter" onclick="checkPasscode()">ENTER</button>
+  </div>
+
+  <div id="message"></div>
+
+  <script>
+    const PASSWORD = "2612";
+    let input = "";
+
+    function pressKey(num) {
+      if (input.length < 10) {
+        input += num;
+        document.getElementById("display").innerText = input;
+      }
+    }
+
+    function clearDisplay() {
+      input = "";
+      document.getElementById("display").innerText = "";
+      document.getElementById("message").innerText = "";
+    }
+
+    function checkPasscode() {
+      if (input === PASSWORD) {
+        window.location.href = "valentine.html"; // redirect to main Valentine page
+      } else {
+        document.getElementById("message").innerText = "Wrong passcode!! Try again KoKo!";
+        clearDisplay();
+      }
+    }
+  </script>
+</body>
+</html>

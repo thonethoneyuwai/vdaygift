@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Valentine 💕</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #fff0f5;
+      color: #d6336c;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 20px;
+      margin: 15px 0;
+    }
+
+    /* Image group */
+    .img-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .img-group img {
+      max-width: 100%;
+      width: 260px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .img-group img:hover {
+      transform: scale(1.08) translateY(-8px);
+      box-shadow: 0px 10px 25px rgba(0,0,0,0.35);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 { font-size: 24px; }
+      p { font-size: 18px; }
+      .img-group img { width: 90%; }
+    }
+
+    /* Heart style */
+    .heart {
+      position: fixed;
+      font-size: 22px;
+      pointer-events: none;
+      animation: floatUp 1.8s ease forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2) translateY(-120px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Yayyyyy 🥰</h1>
+  <h1>Happy Valentine’s Day KoKo 💕</h1>
+
+  <p>Thank chuuu for loving me hehee mwhh ><</p>
+
+  <div class="img-group">
+    <img src="kiss1.jpg" alt="">
+    <img src="kiss2.jpg" alt="">
+  </div>
+
+  <p>Sorwee for ugly photo hinntt TT</p>
+  <p>
+    These are our memorable moments.  
+    For me, they are the happiest times.  
+    Please always stay by my side KoKo &lt;3
+  </p>
+
+  <div class="img-group">
+    <img src="us1.jpg" alt="">
+    <img src="us2.jpg" alt="">
+  </div>
+
+  <div class="img-group">
+    <img src="memo1.jpg" alt="">
+    <img src="memo2.jpg" alt="">
+    <img src="memo3.jpg" alt="">
+    <img src="memo4.jpg" alt="">
+  </div>
+
+  <p>Honestly, every moment with you is the happiest time of my life heheee ><</p>
+
+  <script>
+    const hearts = ["❤️","💕","💗","❤️","❤️","❤️"];
+
+    document.addEventListener("click", burstHearts);
+    document.addEventListener("touchstart", burstHearts);
+
+    function burstHearts(e) {
+      let x, y;
+
+      if (e.touches) {
+        x = e.touches[0].clientX;
+        y = e.touches[0].clientY;
+      } else {
+        x = e.clientX;
+        y = e.clientY;
+      }
+
+      // create MANY hearts (10 per click)
+      for (let i = 0; i < 12; i++) {
+        createHeart(x, y);
+      }
+    }
+
+    function createHeart(x, y) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+      const offsetX = (Math.random() - 0.5) * 100;
+      const offsetY = (Math.random() - 0.5) * 100;
+
+      heart.style.left = x + offsetX + "px";
+      heart.style.top = y + offsetY + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 1800);
+    }
+  </script>
+
+</body>
+</html>

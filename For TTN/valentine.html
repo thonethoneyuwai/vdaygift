@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine's Day</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #ffe6f0;
+      color: #d6336c;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff4d94;
+      color: white;
+    }
+    button:hover {
+      background-color: #ff1a75;
+    }
+    #message {
+      font-size: 22px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Valentine’s Day KoKo Pwasi💕</h1>
+  <p>Will you be my Valentine?</p>
+  <img src="req.jpg" alt="" width="200px"> <br>
+  <button onclick="chooseYes()">Yes</button>
+  <button onclick="chooseNo()">No</button>
+  <div id="message"></div>
+
+  <script>
+    let noClickCount = 0;
+
+    function chooseYes() {
+      // Redirect to the new page when Yes is clicked
+      window.location.href = "yes_page.html";
+    }
+
+    function chooseNo() {
+      noClickCount++;
+      if (noClickCount === 1) {
+        document.getElementById('message').innerText = "Please click Yes KoKo 😭";
+      } else {
+        document.getElementById('message').innerText = "I will be sad. Pls click Yes KoKo :(";
+      }
+    }
+  </script>
+</body>
+</html>
